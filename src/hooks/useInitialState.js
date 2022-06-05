@@ -24,7 +24,6 @@ const useInitialState = () => {
   };
 
   const toggleOrder = () => {
-    console.log('ejecutando');
     setState({
       ...state,
       orderIsOpen: !state.orderIsOpen,

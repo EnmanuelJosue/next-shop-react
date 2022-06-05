@@ -3,8 +3,8 @@ import Link from 'next/link';
 import AppContext from '@context/AppContext';
 import OrderItem from '@components/OrderItem';
 import arrow from '@icons/flechita.svg';
-import styles from '@styles/MyOrder.module.scss'
-import Image from 'next/image'
+import styles from '@styles/MyOrder.module.scss';
+import Image from 'next/image';
 const MyOrder = () => {
 	const { state, toggleOrder } = useContext(AppContext);
 
@@ -12,7 +12,7 @@ const MyOrder = () => {
 		const reducer = (accumalator, currentValue) => accumalator + currentValue.price;
 		const sum = state.cart.reduce(reducer, 0);
 		return sum;
-	}
+	};
 
 	return (
 		<aside className={styles.MyOrder}>
@@ -33,7 +33,10 @@ const MyOrder = () => {
 						</p>
 						<p>${sumTotal()}</p>
 					</div>
-					<Link className={styles['primary-button']} href="/checkout">
+					<Link className={styles['primary-button']} 
+					href={{
+						pathname: "/checkout",
+					}}>
 						Checkout
 					</Link>
 				</div>

@@ -1,15 +1,17 @@
 import ProductList from '@containers/ProductList';
+import useGetProducts from '@hooks/useGetProducts';
 import Head from 'next/head';
-import Header from '@components/Header';
+
+const API = process.env.customKey;
 
 export default function Home() {
+	const products = useGetProducts(`${API}products`);
   return (
     <>
       <Head>
         <title>Shop Online</title>
       </Head>
-      <Header />
-      <ProductList />
+      <ProductList products={products} />
     </>
   );
 }

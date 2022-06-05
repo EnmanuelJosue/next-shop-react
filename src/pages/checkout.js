@@ -1,10 +1,14 @@
+// import {useContext} from 'react';
 import Head from 'next/head';
 import React from 'react';
 import OrderItem from '@components/OrderItem';
 import styles from '@styles/Checkout.module.scss';
+// import AppContext from '@context/AppContext';
 
-const Checkout = (props) => {
-  console.log(props);
+const Checkout = () => {
+	// const { state, toggleOrder } = useContext(AppContext);
+  // console.log(state);
+  // state.orderIsOpen ? toggleOrder() : null;
   return (
     <>
       <Head>

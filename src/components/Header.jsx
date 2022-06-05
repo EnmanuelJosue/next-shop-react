@@ -7,9 +7,14 @@ import menu from '@icons/icon_menu.svg';
 import logo from '@logos/logo_yard_sale.svg';
 import shoppingCart from '@icons/icon_shopping_cart.svg';
 import styles from '@styles/Header.module.scss';
+import useGetCategories from '@hooks/useGetCategories';
+
+const API = process.env.customKey;
 
 const Header = () => {
   const { state, toggleOrder, toggleMenu } = useContext(AppContext);
+	const categories = useGetCategories(`${API}categories`);
+  
   return (
     <>
       <nav className={styles.Nav}>
@@ -22,21 +27,11 @@ const Header = () => {
             <li>
               <Link href="/">All</Link>
             </li>
-            <li>
-              <Link href="/">Clothes</Link>
-            </li>
-            <li>
-              <Link href="/">Electronics</Link>
-            </li>
-            <li>
-              <Link href="/">Furnitures</Link>
-            </li>
-            <li>
-              <Link href="/">Toys</Link>
-            </li>
-            <li>
-              <Link href="/">Others</Link>
-            </li>
+            {categories.map((category) => (
+              <li key={category.id}>
+                <Link href={`${category.id.toString()}`}>{category.name}</Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div className={styles['navbar-right']}>
