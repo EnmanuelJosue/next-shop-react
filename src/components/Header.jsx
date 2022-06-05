@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import AppContext from '@context/AppContext';
 import MyOrder from '@containers/MyOrder';
